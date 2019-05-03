@@ -1,0 +1,64 @@
+$pcolor: #5B4034;
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid $pcolor;
+    border-radius: 10px;
+    padding: 30px;
+}
+.form-container > * {
+    width: 100%;
+}
+.login-form {
+    position: relative;
+}
+.vh100 {
+    min-height: 90vh;
+    align-items: center;
+    display: flex;
+}
+.w100 {
+    width: 100%;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em;
+}
+.signin-btn {
+    background-color: $pcolor;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    color: white;
+    border-radius: 15px;
+}
+.login-title {
+    font-size: 2em;
+    color: $pcolor;
+}
+.btn-border {
+    border-bottom: 2px solid $pcolor;
+}
+.auth-message {
+    font-size: 0.9em;
+    color: brown;
+}
+.btn-signup {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    color: $pcolor;
+    align-items: center;
+    margin-top: 50px;
+}
+.btn-signup button {
+    background-color: 'transparent';
+    color: $pcolor;
+}
+.pry-link {
+    color: $pcolor;
+    text-decoration: none;
+    font-style: normal;
+}

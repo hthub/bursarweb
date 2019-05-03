@@ -1,0 +1,49 @@
+<div class="row">
+  <form class="col s8">
+      <h4>About you</h4>
+      <p>Tell us a bit about you.</p>
+    <div class="row">
+      <div class="col m6">
+        <mat-form-field>
+          <input matInput placeholder="First name" formControlName="firstname" required>
+        </mat-form-field>
+      </div>
+      <div class="col m6">
+        <mat-form-field>
+          <input matInput placeholder="Last name" formControlName="lastname" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col m4">
+          <mat-form-field>
+            <input matInput placeholder="Day" type="number" formControlName="day" required>
+          </mat-form-field>
+        </div>
+        <div class="col m4">
+          <mat-form-field>
+            <input matInput placeholder="Month" type="number" formControlName="month" required>
+          </mat-form-field>
+        </div>
+        <div class="col m4">
+          <mat-form-field>
+            <input matInput placeholder="Year" type="number" formControlName="year" required>
+          </mat-form-field>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col m12">
+        <mat-form-field>
+          <input matInput placeholder="Gender" type="text" formControlName="gender" required>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col m12">
+        <mat-form-field>
+          <input matInput placeholder="Introduced by" type="text" formControlName="introduced_by" required>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>

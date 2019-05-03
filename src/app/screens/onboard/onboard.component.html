@@ -1,0 +1,247 @@
+<div class="row">
+    <div class="col m3">
+    </div>
+    <div class="col m9">
+
+    
+<mat-horizontal-stepper linear labelPosition="bottom" #stepper>
+    <mat-step [stepControl]="biodataFormGroup" errorMessage="Name is required.">
+        <form [formGroup]="biodataFormGroup">
+            <ng-template matStepLabel>Biodata</ng-template>
+            <div class="row">
+                <div class="col s8">
+                    <h4>About you</h4>
+                    <p>Tell us a bit about you.</p>
+                  <div class="row">
+                    <div class="col m6">
+                      <mat-form-field>
+                        <input matInput placeholder="First name" formControlName="firstname" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col m6">
+                      <mat-form-field>
+                        <input matInput placeholder="Last name" formControlName="lastname" required>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col m4">
+                        <mat-form-field>
+                          <mat-select formControlName="day" required>
+                            <mat-option value="">Day</mat-option>
+                            <mat-option *ngFor="let day of days" value="{{day}}">{{day}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+                        <!--mat-form-field>
+                          <input matInput [matDatepicker]="dob" placeholder="Select a date" formControlName="dob" required>
+                          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                          <mat-datepicker #dob></mat-datepicker>
+                        </mat-form-field-->
+                      </div>
+                      <div class="col m4">
+                        <mat-form-field>
+                          <mat-select formControlName="month" required>
+                            <mat-option value="">Month</mat-option>
+                            <mat-option *ngFor="let month of months" value="{{month.id}}">{{month.name}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                      <div class="col m4">
+                        <mat-form-field>
+                          <mat-select formControlName="year" required>
+                            <mat-option value="">Year</mat-option>
+                            <mat-option *ngFor="let year of years" value="{{year}}">{{year}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  <div class="row">
+                    <div class="col m6">
+                      <mat-form-field>
+                        <mat-select formControlName="gender" required>
+                            <mat-option value="">Gender</mat-option>
+                            <mat-option *ngFor="let gender of genders" value="{{gender}}">{{gender}}</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="col m6">
+                      <mat-form-field>
+                        <mat-select formControlName="introduced_by">
+                            <mat-option value="">Introduced by</mat-option>
+                            <mat-option *ngFor="let intro of intros" value="{{intro}}">{{intro}}</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <div>
+                <button mat-button matStepperNext color="primary" mat-raised-button>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="addressFormGroup">
+        <form [formGroup]="addressFormGroup">
+            <ng-template matStepLabel>Address</ng-template>
+            <div class="row">
+                <div class="col s8">
+                    <h4>Address</h4>
+                    <p>We need a physical address to
+                        comply with security requirements.</p>
+                  <div class="row">
+                    <div class="col m12">
+                      <mat-form-field>
+                        <input matInput placeholder="Street address" formControlName="street" required>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col m6">
+                        <mat-form-field>
+                          <input matInput placeholder="City" type="text" formControlName="city" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col m6">
+                        <mat-form-field>
+                          <mat-select formControlName="state" required>
+                            <mat-option value="">State</mat-option>
+                            <mat-option *ngFor="let state of states" value="{{state.id}}">{{state.name}}</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  <div class="row">
+                    <div class="col m12">
+                      <mat-form-field>
+                        <mat-select formControlName="country" required>
+                          <mat-option value="">Country</mat-option>
+                          <mat-option value="1">Nigeria</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <div>
+                <button mat-button matStepperPrevious mat-raised-button color="accent">Back</button>
+                <button mat-button matStepperNext mat-raised-button color="primary" class="next-btn">Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="nextofkinFormGroup">
+        <form [formGroup]="nextofkinFormGroup">
+            <ng-template matStepLabel>Relative</ng-template>
+            <div class="row">
+                <div class="col s8">
+                    <h4>Next of kin</h4>
+                    <p>Let us know who’s close to you.</p>
+                  <div class="row">
+                      <div class="col m6">
+                        <mat-form-field>
+                          <input matInput placeholder="First name" formControlName="nokfirstname" required>
+                        </mat-form-field>
+                      </div>
+                      <div class="col m6">
+                        <mat-form-field>
+                          <input matInput placeholder="Last name" formControlName="noklastname" required>
+                        </mat-form-field>
+                      </div>
+                  </div>
+                  <div class="row">
+                    <div class="col m6">
+                      <mat-form-field>
+                        <input matInput placeholder="Phone" type="number" formControlName="nokphone" required>
+                      </mat-form-field>
+                    </div>
+                    <div class="col m6">
+                      <mat-form-field>
+                        <input matInput placeholder="Relationship" type="text" formControlName="relationship" required>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col m12">
+                        <mat-form-field>
+                          <input matInput placeholder="Street address" formControlName="nokaddress" required>
+                        </mat-form-field>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              
+            <div>
+                <button mat-button matStepperPrevious mat-raised-button color="accent">Back</button>
+                <button mat-button matStepperNext mat-raised-button color="primary" class="next-btn">Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="bankaccountFormGroup">
+        <form [formGroup]="bankaccountFormGroup">
+            <ng-template matStepLabel>Bank</ng-template>
+            <div class="row">
+                <div class="col s8">
+                    <h4>Bank account</h4>
+                    <p>You need a bank account to
+                        save money or take a loan.</p>
+                  <div class="row">
+                    <div class="col m6">
+                      <mat-form-field>
+                        <input matInput placeholder="Account name" formControlName="account_name" required>
+                      </mat-form-field>
+                    </div>
+                      <div class="col m6">
+                        <mat-form-field>
+                          <input matInput placeholder="Account number" type="number" formControlName="account_number" required>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col m6">
+                          <mat-form-field>
+                            <input matInput placeholder="Bank name" formControlName="bank_name" required>
+                          </mat-form-field>
+                        </div>
+                        <div class="col m6">
+                          <mat-form-field>
+                            <input matInput placeholder="BVN" type="number" formControlName="bvn" required>
+                          </mat-form-field>
+                        </div>
+                  </div>
+                  <div class="row">
+                    <div class="col m12">
+                      <mat-form-field>
+                        <input matInput placeholder="Bank branch" type="text" formControlName="bank_branch" required>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            <div>
+                <button mat-button matStepperPrevious mat-raised-button color="accent">Back</button>
+                <button mat-button (click)="submit()" matStepperNext mat-raised-button color="primary" class="next-btn">Finish</button>
+            </div>
+        </form>
+    </mat-step>
+    <!--mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+          Please click the finish button to complete your signup.
+        <div>
+            <button mat-button matStepperPrevious mat-stroked-button>Back</button>
+            <button mat-button (click)="submit()" mat-raised-button color="success" class="next-btn">Finish</button>
+        </div>
+    </mat-step-->
+</mat-horizontal-stepper>
+</div>
+</div>
+
+<!--
+  <mat-form-field>
+                          <input matInput [matDatepicker]="dob" placeholder="Select a date" formControlName="dob" required>
+                          <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                          <mat-datepicker #dob></mat-datepicker>
+                        </mat-form-field>
+-->

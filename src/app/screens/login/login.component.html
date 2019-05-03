@@ -1,0 +1,49 @@
+<div class="container vh100">
+    <div class="row w100">
+  
+        <div class="col s12"> <!-- Note that "m8 l9" was added -->
+          <div class="row" [ngSwitch]="loginForm">
+                  <div *ngSwitchCase="'login'" class="login-form col s12 m6 offset-m3">
+                    <h2 class="login-title">Login</h2>
+                    <p *ngIf="auth.hasError" class="auth-message">{{auth.message}}</p>
+                    <form [formGroup]="loginFormGroup" (ngSubmit)="login(loginFormGroup.value)" novalidate>
+                      <div class="form-container">
+                          <mat-form-field>
+                            <input matInput placeholder="Enter your email" type="email" formControlName="username" required>
+                            <mat-error *ngIf="username.invalid">{{getErrorMessage()}}</mat-error>
+                          </mat-form-field> 
+                        
+                          <mat-form-field>
+                            <input matInput placeholder="password" type="password" formControlName="password" required>
+                          </mat-form-field>
+                        </div>
+                        <div class="controls">
+                          <button mat-button mat-raised-button color="primary" class="signin-btn">Sign in</button>
+                          <button mat-button (click)="toggleForm('reset')">Forgot password?</button>
+                        </div>
+                    </form>
+                    <div class="btn-signup">
+                      Don't have an account? &nbsp;<a [routerLink]="['/signup']" class="pry-link">Sign up</a>
+                    </div>
+                  </div>
+
+                  <div *ngSwitchCase="'reset'" class="login-form col s12 m6 offset-m3">
+                      <h2 class="login-title">Reset password</h2>
+                      <p>Please enter your email. We'll send your reset code there.</p>
+                      <form [formGroup]="resetFormGroup" novalidate>
+                        <div class="form-container">
+                            <mat-form-field>
+                              <input matInput placeholder="Enter your email" type="email" formControlName="email" required>
+                              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                            </mat-form-field> 
+                          </div>
+                          <div class="controls">
+                            <button mat-button mat-raised-button color="primary" class="signin-btn">Send email</button>
+                            <button mat-button (click)="toggleForm('login')">Login</button>
+                          </div>
+                      </form>
+                    </div>
+            </div>
+  
+        </div>
+</div>
