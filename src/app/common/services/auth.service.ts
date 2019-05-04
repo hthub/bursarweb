@@ -64,8 +64,8 @@ export class AuthService {
     requestToken(account) {
         const auth = {
             grant_type: "password",
-            client_id: 2,
-            client_secret: "pwQ0LKjXUf6GjSWcS8ipLYItL5qWlNLUlNQGmrxo",
+            client_id: appConstants.CLIENT_ID,
+            client_secret: appConstants.CLIENT_SECRET,
         };
         const data = Object.assign(account, auth);
         return this.server.post(appConstants.BASE_URL + appConstants.REQUEST_TOKEN, data)

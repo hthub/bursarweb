@@ -87,7 +87,7 @@ export class OnboardComponent implements OnInit {
     this.setupDob();
     this.auth$.subscribe( auth => {
       console.log(auth.onboard)
-      if(auth.onboard.hasOwnProperty('id') && this.utility.isset(auth.onboard.firstname) && this.utility.isset(auth.onboard.lastname))
+      if(auth.onboard.hasOwnProperty('id') && this.utility.isset(auth.onboard.firstname) && this.utility.isset(auth.onboard.lastname) && auth.onboard.firstname !== "" && auth.onboard.lastname !== "" )
           this.router.navigate(['/dashboard']);
       
     } )
